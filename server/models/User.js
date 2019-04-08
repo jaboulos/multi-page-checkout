@@ -17,11 +17,10 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: {
-    type: String,
-    // lowercase: true
+    type: String
   },
   email: {
-    type: String,
+    type: String
   },
   password: {
     type: String
