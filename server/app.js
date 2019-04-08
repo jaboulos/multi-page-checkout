@@ -18,8 +18,6 @@ app.use(express.static(`${__dirname}/../build`));
 // body parser
 app.use(bodyParser.json());
 
-
-
 mongoose.connect(configFolder.mongoURI, { useNewUrlParser: true });
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
