@@ -1,18 +1,18 @@
 import React from 'react';
 
-const StepThree = ({handleChange, handleNextThree}) =>{
+const StepThree = ({handleChange, handleNextFour}) =>{
     return (
       <div>
-        Name:
-      <input onChange={handleChange('creditcard')}></input>
+
         creditcard:
-      <input onChange={handleChange('expirationdate')}></input>
+      <input onChange={handleChange('creditcard')}></input>
         expirationdate:
-      <input onChange={handleChange('cvv')}></input>
+      <input onChange={handleChange('expirationdate')}></input>
         cvv:
-      <input onChange={handleChange('billingzipcode')}></input>
+      <input onChange={handleChange('cvv')}></input>
         billingzipcode:
-      <button onClick={() => handleNextThree()}>Next</button>
+      <input onChange={handleChange('billingzipcode')}></input>
+      <button onClick={() => handleNextFour()}>Next</button>
       </div>
     )
 }

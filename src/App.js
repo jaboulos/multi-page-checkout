@@ -13,13 +13,11 @@
 
 // export default App;
 
-import React, { Component } from 'react';
-import Homepage from './components/Homepage';
+import React from 'react';
 
 const App = (props) => {
   return (
     <div>
-      <Homepage />
       {props.children}
     </div>
   );
