@@ -25,11 +25,10 @@ const { name, email, password } = req.body
 router.put('/pagetwo', (req, res, next) => {
   const { email, addresslineone, addresslinetwo, city, state, zip, phone } = req.body
 
-    User.updateOne({email:"email0"},
+    User.updateOne({email:email},
       {
         $set:
           {
-            email,
             addresslineone,
             addresslinetwo,
             city,
@@ -47,7 +46,7 @@ router.put('/pagetwo', (req, res, next) => {
 // @ route PUT /pagethree
 router.put('/pagethree', (req, res, next) => {
   const { email, creditcard, expirationdate, cvv, billingzipcode} = req.body
-    User.updateOne({email:"email0"},
+    User.updateOne({email:email},
       {
         $set:
           {
