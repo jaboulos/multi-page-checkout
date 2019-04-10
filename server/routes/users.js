@@ -13,18 +13,15 @@ router.get('/allusers', (req, res, next) => {
 })
 
 
-// @route POST /pageOne
-router.post('/pageone', (req, res, next) => {
-const { name, email, password } = req.body
-
-  const pageOne = new User({name, email, password})
-  pageOne.save().then(user => res.json(user))
+// @route POST /submit
+router.post('/saveinfo', (req, res, next) => {
+  const saveInfo = new User(req.body)
+  saveInfo.save().then(user => res.json(user))
 });
 
 // @route PUT /pagetwo
 router.put('/pagetwo', (req, res, next) => {
   const { email, addresslineone, addresslinetwo, city, state, zip, phone } = req.body
-
     User.updateOne({email:email},
       {
         $set:
