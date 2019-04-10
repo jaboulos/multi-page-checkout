@@ -6,6 +6,7 @@ import CheckInfo from './CheckInfo';
 import Summary from './Summary';
 
 import axios from 'axios';
+import fire from '../firebaseConfig/Fire'
 
 class Homepage extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Homepage extends Component {
       expirationdate: '',
       cvv: '',
       billingzipcode: '',
-      isHidden: true
+      isHidden: true,
     }
     this.handleNext = this.handleNext.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -33,6 +34,11 @@ class Homepage extends Component {
     this.handleHomePage = this.handleHomePage.bind(this)
     this.toggleSummary= this.toggleSummary.bind(this)
     this.goBack = this.goBack.bind(this)
+    this.logout = this.logout.bind(this)
+  }
+
+  logout() {
+    fire.auth().signOut();
   }
 
   handleNext(event) {
@@ -92,6 +98,7 @@ class Homepage extends Component {
         <div>
           <h1>Begin Checkout</h1>
           <button onClick={this.handleNext}>Begin Checkout</button>
+          <button onClick={this.logout}>Logout</button>
         </div>
       );
     } else if( currentPage  === 1) {
@@ -105,6 +112,7 @@ class Homepage extends Component {
           handleChange={this.handleChange}
           handleNext={this.handleNext}
           goBack={this.goBack}
+          logout={this.logout}
         />
       )
     } else if( currentPage  === 2) {
@@ -129,6 +137,7 @@ class Homepage extends Component {
             handleNext={this.handleNext}
             goBack={this.goBack}
             toggleSummary={this.toggleSummary}
+            logout={this.logout}
           />
         </div>
       )
@@ -158,6 +167,7 @@ class Homepage extends Component {
           handleNext={this.handleNext}
           goBack={this.goBack}
           toggleSummary={this.toggleSummary}
+          logout={this.logout}
         />
       </div>
       )
@@ -198,6 +208,7 @@ class Homepage extends Component {
             goBack={this.goBack}
             handleHomePage={this.handleHomePage}
             handleSubmit={this.handleSubmit}
+            logout={this.logout}
           />
         </div>
       )

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StepTwo= ({handleChange, handleNext, handleHomePage, goBack}) =>{
+const StepTwo= ({handleChange, handleNext, handleHomePage, goBack, logout}) =>{
     return (
       <div>
         addresslineone:
@@ -19,6 +19,7 @@ const StepTwo= ({handleChange, handleNext, handleHomePage, goBack}) =>{
       <button onClick={() => handleNext()}>Next Step</button>
       <button onClick={() => goBack()}>Previous Step</button>
       {/* <button onClick={() => toggleSummary()}>Check Progress</button> */}
+      <button onClick={() => logout()}>Logout</button>
       </div>
     )
 }
