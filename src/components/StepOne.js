@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StepOne = ({handleChange, handleNextTwo}) =>{
+const StepOne = ({handleChange, handleNext, handleHomePage, goBack}) =>{
     return (
       <div>
         Name:
@@ -9,7 +9,9 @@ const StepOne = ({handleChange, handleNextTwo}) =>{
       <input onChange={handleChange('email')}></input>
         Password:
       <input onChange={handleChange('password')}></input>
-        <button onClick={() => handleNextTwo()}>Next</button>
+        <button onClick={() => handleHomePage()}>Home Page</button>
+        <button onClick={() => handleNext()}>Next Step</button>
+        <button onClick={() => goBack()}>Previous Step</button>
       </div>
     )
 }

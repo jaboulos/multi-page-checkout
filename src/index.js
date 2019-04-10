@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import App from './App';
 import Homepage from './components/Homepage';
-import StepOne from './components/StepOne';
+// import StepOne from './components/StepOne';
 
 import * as serviceWorker from './serviceWorker';
 
