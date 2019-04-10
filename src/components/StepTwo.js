@@ -18,6 +18,7 @@ const StepTwo= ({handleChange, handleNext, handleHomePage, goBack}) =>{
       <button onClick={() => handleHomePage()}>Home Page</button>
       <button onClick={() => handleNext()}>Next Step</button>
       <button onClick={() => goBack()}>Previous Step</button>
+      {/* <button onClick={() => toggleSummary()}>Check Progress</button> */}
       </div>
     )
 }

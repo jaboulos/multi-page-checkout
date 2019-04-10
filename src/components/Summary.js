@@ -1,11 +1,10 @@
 import React from 'react';
 
 const Summary = ({name, email, password, currentPage, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode }) =>{
-  console.log("check info: ", name, {email})
     return (
       <div>
         <div>
-          <h4>Verify The Following is correct</h4>
+          <h4>Checkout Summary</h4>
           <p>Current Step: {currentPage}</p>
           <p>Name: {name}</p>
           <p>Email: {email}</p>

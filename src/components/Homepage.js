@@ -3,6 +3,8 @@ import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import CheckInfo from './CheckInfo';
+import Summary from './Summary';
+
 import axios from 'axios';
 
 class Homepage extends Component {
@@ -23,12 +25,13 @@ class Homepage extends Component {
       expirationdate: '',
       cvv: '',
       billingzipcode: '',
-      showSummary: false
+      isHidden: true
     }
     this.handleNext = this.handleNext.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleHomePage = this.handleHomePage.bind(this)
+    this.toggleSummary= this.toggleSummary.bind(this)
     this.goBack = this.goBack.bind(this)
   }
 
@@ -76,12 +79,14 @@ class Homepage extends Component {
   }
 
   toggleSummary() {
-
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   render() {
-    let { currentPage, name, email, password, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode } = this.state;
-    console.log('state: ', this.state);
+    let { currentPage, name, email, password, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode, isEmptyState } = this.state;
+
     if( currentPage  === 0) {
       return (
         <div>
@@ -104,22 +109,44 @@ class Homepage extends Component {
       )
     } else if( currentPage  === 2) {
       return(
-        <StepTwo
-          currentPage={currentPage}
-          addresslineone={addresslineone}
-          addresslinetwo={addresslinetwo}
-          city={city}
-          state={state}
-          zip={zip}
-          phone={phone}
-          handleHomePage={this.handleHomePage}
-          handleChange={this.handleChange}
-          handleNext={this.handleNext}
-          goBack={this.goBack}
-        />
+        <div>
+          <button onClick={this.toggleSummary}>Toggle Summary</button>
+          {!this.state.isHidden && <Summary
+            name={name}
+            email={email}
+            password={password}
+          />}
+          <StepTwo
+            currentPage={currentPage}
+            addresslineone={addresslineone}
+            addresslinetwo={addresslinetwo}
+            city={city}
+            state={state}
+            zip={zip}
+            phone={phone}
+            handleHomePage={this.handleHomePage}
+            handleChange={this.handleChange}
+            handleNext={this.handleNext}
+            goBack={this.goBack}
+            toggleSummary={this.toggleSummary}
+          />
+        </div>
       )
     } else if( currentPage  === 3) {
       return(
+        <div>
+          <button onClick={this.toggleSummary}>Toggle Summary</button>
+          {!this.state.isHidden && <Summary
+            name={name}
+            email={email}
+            password={password}
+            addresslineone={addresslineone}
+            addresslinetwo={addresslinetwo}
+            city={city}
+            state={state}
+            zip={zip}
+            phone={phone}
+          />}
         <StepThree
           currentPage={currentPage}
           creditcard={creditcard}
@@ -130,9 +157,29 @@ class Homepage extends Component {
           handleChange={this.handleChange}
           handleNext={this.handleNext}
           goBack={this.goBack}
+          toggleSummary={this.toggleSummary}
         />
-      ) }else if( currentPage === 4) {
-        return(
+      </div>
+      )
+    } else if( currentPage === 4) {
+      return(
+        <div>
+          <button onClick={this.toggleSummary}>Toggle Summary</button>
+          {!this.state.isHidden && <Summary
+            name={name}
+            email={email}
+            password={password}
+            addresslineone={addresslineone}
+            addresslinetwo={addresslinetwo}
+            city={city}
+            state={state}
+            zip={zip}
+            phone={phone}
+            creditcard={creditcard}
+            expirationdate={expirationdate}
+            cvv={cvv}
+            billingzipcode={billingzipcode}
+          />}
           <CheckInfo
             currentPage={currentPage}
             name={name}
@@ -152,6 +199,7 @@ class Homepage extends Component {
             handleHomePage={this.handleHomePage}
             handleSubmit={this.handleSubmit}
           />
+        </div>
       )
     }
   }
