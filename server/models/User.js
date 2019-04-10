@@ -9,7 +9,7 @@ mongoose.Promise = global.Promise;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log('MongoDB is connected to the Users database');
+  console.log('MongoDB is connected to the Users database, users collection');
 });
 
 const Schema = mongoose.Schema;
@@ -20,7 +20,10 @@ const userSchema = new Schema({
     type: String
   },
   email: {
-    type: String
+    type: String,
+    lowercase: true,
+    unique: true,
+    required: true
   },
   password: {
     type: String
