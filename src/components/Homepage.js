@@ -3,6 +3,7 @@ import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import CheckInfo from './CheckInfo';
+import axios from 'axios';
 
 class Homepage extends Component {
   constructor(props) {
@@ -21,38 +22,61 @@ class Homepage extends Component {
       creditcard: '',
       expirationdate: '',
       cvv: '',
-      billingzipcode: ''
+      billingzipcode: '',
+      showSummary: false
     }
     this.handleNext = this.handleNext.bind(this)
-    this.handleNextTwo = this.handleNextTwo.bind(this)
-    this.handleNextThree = this.handleNextThree.bind(this)
-    this.handleNextFour = this.handleNextFour.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleHomePage = this.handleHomePage.bind(this)
+    this.goBack = this.goBack.bind(this)
   }
 
   handleNext(event) {
     this.setState({
-      currentPage: 1
+      currentPage: this.state.currentPage+1
     })
   }
-  handleNextTwo(event) {
+
+  handleHomePage(event) {
     this.setState({
-      currentPage: 2
+      currentPage: 0
     })
   }
-  handleNextThree(event) {
+
+  goBack(event) {
     this.setState({
-      currentPage: 3
+      currentPage: this.state.currentPage-1
     })
   }
-  handleNextFour(event) {
-    this.setState({
-      currentPage: 4
+
+  handleSubmit(event) {
+    let { name, email, password, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode } = this.state;
+    axios.post('/saveinfo', {
+      name,
+      email,
+      password,
+      addresslineone,
+      addresslinetwo,
+      city,
+      state,
+      zip,
+      phone,
+      creditcard,
+      expirationdate,
+      cvv,
+      billingzipcode
     })
+    .then(data => console.log('saved user: ', data))
+    .catch(err => console.log('error: ', err))
   }
 
   handleChange(key) {
     return (e) => this.setState({ [key]: e.target.value })
+  }
+
+  toggleSummary() {
+
   }
 
   render() {
@@ -72,8 +96,10 @@ class Homepage extends Component {
           name={name}
           email={email}
           password={password}
+          handleHomePage={this.handleHomePage}
           handleChange={this.handleChange}
-          handleNextTwo={this.handleNextTwo}
+          handleNext={this.handleNext}
+          goBack={this.goBack}
         />
       )
     } else if( currentPage  === 2) {
@@ -86,8 +112,10 @@ class Homepage extends Component {
           state={state}
           zip={zip}
           phone={phone}
+          handleHomePage={this.handleHomePage}
           handleChange={this.handleChange}
-          handleNextThree={this.handleNextThree}
+          handleNext={this.handleNext}
+          goBack={this.goBack}
         />
       )
     } else if( currentPage  === 3) {
@@ -98,8 +126,10 @@ class Homepage extends Component {
           expirationdate={expirationdate}
           cvv={cvv}
           billingzipcode={billingzipcode}
+          handleHomePage={this.handleHomePage}
           handleChange={this.handleChange}
-          handleNextFour={this.handleNextFour}
+          handleNext={this.handleNext}
+          goBack={this.goBack}
         />
       ) }else if( currentPage === 4) {
         return(
@@ -108,7 +138,6 @@ class Homepage extends Component {
             name={name}
             email={email}
             password={password}
-            currentPage={currentPage}
             addresslineone={addresslineone}
             addresslinetwo={addresslinetwo}
             city={city}
@@ -119,6 +148,9 @@ class Homepage extends Component {
             expirationdate={expirationdate}
             cvv={cvv}
             billingzipcode={billingzipcode}
+            goBack={this.goBack}
+            handleHomePage={this.handleHomePage}
+            handleSubmit={this.handleSubmit}
           />
       )
     }
