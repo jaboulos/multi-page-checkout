@@ -9,12 +9,12 @@ import axios from 'axios';
 import fire from '../firebaseConfig/Fire'
 
 class Homepage extends Component {
-  constructor(props) {
-    super(props);
+  constructor({email}) {
+    super({email});
     this.state = {
       currentPage: 0,
       name: '',
-      email: '',
+      email: {email}.email.email,
       password: '',
       addresslineone: '',
       addresslinetwo: '',
@@ -91,6 +91,7 @@ class Homepage extends Component {
   }
 
   render() {
+    console.log('HOMEPAGE EMAIL: ', this.state.email)
     let { currentPage, name, email, password, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode, isEmptyState } = this.state;
 
     if( currentPage  === 0) {
