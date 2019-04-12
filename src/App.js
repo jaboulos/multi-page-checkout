@@ -43,7 +43,7 @@ class App extends Component {
       <div className="container">
 
         {/* { this.state.user ? this.props.children : <Login /> } */}
-        { this.state.user ? (<Homepage />) : (<Login />) }
+        { this.state.user ? (<Homepage email={this.state.user}/>) : (<Login />) }
       </div>
     )
   }
