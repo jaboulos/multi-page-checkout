@@ -40,7 +40,7 @@ class App extends Component {
 
   render() {
     return(
-      <div className="App">
+      <div className="container">
 
         {/* { this.state.user ? this.props.children : <Login /> } */}
         { this.state.user ? (<Homepage />) : (<Login />) }

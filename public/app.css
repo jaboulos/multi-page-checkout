@@ -1,0 +1,18 @@
+footer {
+  color: red;
+}
+
+.container {
+  height: 100vh;
+}
+
+/* footer .page-footer {
+  height: 100vh;
+  margin-top: 300px
+} */
+
+footer {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 50px;
+}

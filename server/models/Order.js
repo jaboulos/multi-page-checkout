@@ -35,6 +35,6 @@ const orderSchema = new Schema({
   },
 })
 
-const User = mongoose.model('order', orderSchema)
+const Order = mongoose.model('order', orderSchema)
 
-module.exports = User;
+module.exports = Order;
