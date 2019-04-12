@@ -10,6 +10,7 @@ mongoose.Promise = global.Promise;
 
 // connect to routes directory
 const users = require('./routes/users');
+const orders = require('./routes/orders');
 const app = express();
 
 app.use(cors());
@@ -27,7 +28,7 @@ mongoose.connection.once('open', () => {
 
 
 // use routes
-app.use('/', users);
+app.use('/', users, orders);
 
 const port = process.env.PORT || 4000;
 
