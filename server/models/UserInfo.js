@@ -15,16 +15,25 @@ db.once('open', () => {
 const Schema = mongoose.Schema;
 
 
-const userSchema = new Schema({
+const userInfoSchema = new Schema({
   name: {
     type: String
   },
   email: {
     type: String,
     lowercase: true,
-    // unique: true,
+    unique: true,
     required: true
   },
+  orders: [
+    {
+      ordered: {
+        type: Date,
+      },
+      company: String,
+      price: String
+    }
+  ],
   password: {
     type: String
   },
@@ -60,6 +69,6 @@ const userSchema = new Schema({
   }
 })
 
-const User = mongoose.model('user', userSchema)
+const UserInfo = mongoose.model('userInfo', userInfoSchema)
 
-module.exports = User;
+module.exports = UserInfo;

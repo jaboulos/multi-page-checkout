@@ -5,8 +5,8 @@ const StepOne = ({handleChange, handleNext, handleHomePage, goBack, logout}) =>{
       <div>
         Name:
       <input onChange={handleChange('name')}></input>
-        Email:
-      <input onChange={handleChange('email')}></input>
+        {/* Email:
+      <input onChange={handleChange('email')}></input> */}
         Password:
       <input onChange={handleChange('password')}></input>
         <button onClick={() => handleHomePage()}>Home Page</button>

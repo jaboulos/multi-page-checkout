@@ -9,7 +9,8 @@ class Login extends Component {
     this.signup = this.signup.bind(this)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      // firstTime: false
     }
   }
 
@@ -19,16 +20,25 @@ class Login extends Component {
 
   login(e) {
     e.preventDefault();
-    fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) =>{
-    }).catch(error => console.log('error: ', error))
+    fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then((u) =>{})
+      .catch(error => console.log('error: ', error))
   }
+
+
 
   signup(e) {
     e.preventDefault();
-    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) =>{
-    }).then((u)=>{console.log(u)})
-    .catch(error => console.log('error: ', error))
+    // this.setState({
+    //   firstTime: !this.state.firstTime
+    // })
+    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then((u) =>{})
+      .then((u)=>{console.log(u)})
+      .catch(error => console.log('error: ', error))
   }
+
+
 
 
   render() {

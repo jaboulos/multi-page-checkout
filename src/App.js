@@ -20,7 +20,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}
+      user: {},
+      // firstTime: false
     }
   }
 
@@ -39,11 +40,15 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.firstTime)
     return(
-      <div className="App">
+      <div className="container">
 
         {/* { this.state.user ? this.props.children : <Login /> } */}
-        { this.state.user ? (<Homepage />) : (<Login />) }
+        { this.state.user ? (<Homepage
+                                email={this.state.user}
+                                // firstTime={this.state.firstTime}
+                              />) : (<Login />) }
       </div>
     )
   }
