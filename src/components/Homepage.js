@@ -9,12 +9,12 @@ import axios from 'axios';
 import fire from '../firebaseConfig/Fire'
 
 class Homepage extends Component {
-  constructor({email}) {
-    super({email});
+  constructor(props) {
+    super(props);
     this.state = {
       currentPage: 0,
       name: '',
-      email: {email}.email.email,
+      email: props.email.email,
       password: '',
       addresslineone: '',
       addresslinetwo: '',
@@ -27,6 +27,8 @@ class Homepage extends Component {
       cvv: '',
       billingzipcode: '',
       isHidden: true,
+      // firstTime: props.firstTime
+
     }
     this.handleNext = this.handleNext.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -92,6 +94,7 @@ class Homepage extends Component {
 
   render() {
     console.log('HOMEPAGE EMAIL: ', this.state.email)
+    console.log('first timer? ', this.state.firstTime)
     let { currentPage, name, email, password, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode, isEmptyState } = this.state;
 
     if( currentPage  === 0) {
