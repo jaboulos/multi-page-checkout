@@ -14,6 +14,11 @@
   align-self: center;
 }
 
+label, label.inline {
+  display: inline-block;
+  width: 100px;
+}
+
 /* buttons */
 button {
   margin-top: 5px;
