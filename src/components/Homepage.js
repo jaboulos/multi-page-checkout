@@ -4,6 +4,7 @@ import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import CheckInfo from './CheckInfo';
 import Summary from './Summary';
+import NavBar from './NavBar';
 
 import axios from 'axios';
 import fire from '../firebaseConfig/Fire'
@@ -100,6 +101,13 @@ class Homepage extends Component {
     if( currentPage  === 0) {
       return (
         <div>
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              logout={this.logout}
+            />
+          </div>
           <h1>Begin Checkout</h1>
           <button onClick={this.handleNext}>Begin Checkout</button>
           <button onClick={this.logout}>Logout</button>
@@ -107,20 +115,41 @@ class Homepage extends Component {
       );
     } else if( currentPage  === 1) {
       return(
-        <StepOne
-          currentPage={currentPage}
-          name={name}
-          email={email}
-          password={password}
-          handleHomePage={this.handleHomePage}
-          handleChange={this.handleChange}
-          handleNext={this.handleNext}
-          goBack={this.goBack}
-          logout={this.logout}
-        />
+        <div>
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              logout={this.logout}
+            />
+          </div>
+          <div>
+            <StepOne
+              currentPage={currentPage}
+              name={name}
+              email={email}
+              password={password}
+              handleHomePage={this.handleHomePage}
+              handleChange={this.handleChange}
+              handleNext={this.handleNext}
+              goBack={this.goBack}
+              logout={this.logout}
+            />
+          </div>
+        </div>
       )
     } else if( currentPage  === 2) {
       return(
+        <div>
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              logout={this.logout}
+            />
+          </div>
+
+
         <div>
           <button onClick={this.toggleSummary}>Toggle Summary</button>
           {!this.state.isHidden && <Summary
@@ -144,9 +173,18 @@ class Homepage extends Component {
             logout={this.logout}
           />
         </div>
+        </div>
       )
     } else if( currentPage  === 3) {
       return(
+        <div>
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              logout={this.logout}
+            />
+          </div>
         <div>
           <button onClick={this.toggleSummary}>Toggle Summary</button>
           {!this.state.isHidden && <Summary
@@ -174,11 +212,21 @@ class Homepage extends Component {
           logout={this.logout}
         />
       </div>
+      </div>
       )
     } else if( currentPage === 4) {
       return(
         <div>
-          <button onClick={this.toggleSummary}>Toggle Summary</button>
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              logout={this.logout}
+            />
+          </div>
+
+        <div>
+          {/* <button onClick={this.toggleSummary}>Toggle Summary</button>
           {!this.state.isHidden && <Summary
             name={name}
             email={email}
@@ -193,7 +241,7 @@ class Homepage extends Component {
             expirationdate={expirationdate}
             cvv={cvv}
             billingzipcode={billingzipcode}
-          />}
+          />} */}
           <CheckInfo
             currentPage={currentPage}
             name={name}
@@ -214,6 +262,7 @@ class Homepage extends Component {
             handleSubmit={this.handleSubmit}
             logout={this.logout}
           />
+        </div>
         </div>
       )
     }
