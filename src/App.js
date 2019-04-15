@@ -13,6 +13,7 @@
 import React, { Component } from 'react';
 import fire from './firebaseConfig/Fire';
 
+import NavBar from './components/NavBar'
 import Login from './components/Login';
 import Homepage from './components/Homepage';
 
@@ -42,13 +43,16 @@ class App extends Component {
   render() {
     console.log(this.state.firstTime)
     return(
-      <div className="container">
-
-        {/* { this.state.user ? this.props.children : <Login /> } */}
-        { this.state.user ? (<Homepage
-                                email={this.state.user}
-                                // firstTime={this.state.firstTime}
-                              />) : (<Login />) }
+      <div className='wrapper'>
+        <NavBar />
+        <div className='container-fluid'>
+          {/* { this.state.user ? this.props.children : <Login /> } */}
+          { this.state.user ? (
+            <Homepage
+              email={this.state.user}
+              // firstTime={this.state.firstTime}
+            />) : (<Login />) }
+        </div>
       </div>
     )
   }

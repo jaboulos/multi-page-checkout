@@ -25,8 +25,6 @@ class Login extends Component {
       .catch(error => console.log('error: ', error))
   }
 
-
-
   signup(e) {
     e.preventDefault();
     // this.setState({
@@ -37,9 +35,6 @@ class Login extends Component {
       .then((u)=>{console.log(u)})
       .catch(error => console.log('error: ', error))
   }
-
-
-
 
   render() {
     return(

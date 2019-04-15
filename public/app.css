@@ -1,18 +1,30 @@
-footer {
-  color: red;
+.container-fluid {
+  height: 100vh;
+  padding-top: 8%
 }
 
-.container {
-  height: 100vh;
+.wrapper {
+  /* display: flex; */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* forms */
+.form-wrapper form{
+  align-self: center;
+}
+
+label, label.inline {
+  display: inline-block;
+  width: 100px;
+}
+
+/* buttons */
+button {
+  margin-top: 5px;
 }
 
 /* footer .page-footer {
   height: 100vh;
   margin-top: 300px
 } */
-
-footer {
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 50px;
-}

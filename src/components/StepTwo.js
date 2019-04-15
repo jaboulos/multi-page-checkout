@@ -2,24 +2,59 @@ import React from 'react';
 
 const StepTwo= ({handleChange, handleNext, handleHomePage, goBack, logout}) =>{
     return (
-      <div>
-        addresslineone:
-      <input onChange={handleChange('addresslineone')}></input>
-        addresslinetwo:
-      <input onChange={handleChange('addresslinetwo')}></input>
-        city:
-      <input onChange={handleChange('city')}></input>
-        state:
-      <input onChange={handleChange('state')}></input>
-        zip:
-      <input onChange={handleChange('zip')}></input>
-        phone:
-      <input onChange={handleChange('phone')}></input>
-      <button onClick={() => handleHomePage()}>Home Page</button>
-      <button onClick={() => handleNext()}>Next Step</button>
-      <button onClick={() => goBack()}>Previous Step</button>
-      {/* <button onClick={() => toggleSummary()}>Check Progress</button> */}
-      <button onClick={() => logout()}>Logout</button>
+      <div className='form-wrapper'>
+        {/* <form> */}
+          <div>
+            <label>
+              addresslineone:
+              <input onChange={handleChange('addresslineone')}></input>
+            </label>
+            </div>
+
+            <div>
+              <label>
+                addresslinetwo:
+                <input onChange={handleChange('addresslinetwo')}></input>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                city:
+                <input onChange={handleChange('city')}></input>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                state:
+                <input onChange={handleChange('state')}></input>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                zip:
+                <input onChange={handleChange('zip')}></input>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                phone:
+                <input onChange={handleChange('phone')}></input>
+              </label>
+            </div>
+            <div>
+              <button onClick={() => goBack()}>Previous Step</button>
+              <button onClick={() => handleNext()}>Next Step</button>
+            </div>
+            <div>
+              <button onClick={() => handleHomePage()}>Start Over</button>
+              <button onClick={() => logout()}>Logout</button>
+            </div>
+
+        {/* </form> */}
       </div>
     )
 }
