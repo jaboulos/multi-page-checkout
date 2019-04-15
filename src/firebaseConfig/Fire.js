@@ -1,4 +1,6 @@
+import Rebase from 're-base';
 import firebase from 'firebase';
+
 
 const config = {
   apiKey: "AIzaSyAcAMBspRLMoHFr8B9ug1OuMtTMduFEmk0",
@@ -10,4 +12,7 @@ const config = {
 };
 
 const fire = firebase.initializeApp(config);
+const base = Rebase.createClass(fire.database())
+
 export default fire;
+export { base };
