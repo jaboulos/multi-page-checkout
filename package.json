@@ -17,6 +17,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.4.22",
     "morgan": "^1.9.1",
+    "re-base": "^4.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
