@@ -22,9 +22,13 @@ const CheckInfo = ({name, email, password, currentPage, addresslineone, addressl
           <p>Billing Zip Code: {billingzipcode}</p>
         </div>
         <div>
-          <button onClick={() => handleHomePage()}>Home Page</button>
-          <button onClick={() => handleSubmit()}>submit</button>
           <button onClick={() => goBack()}>Previous Step</button>
+          <button onClick={() => handleHomePage()}>Start Over</button>
+          <button onClick={() => handleSubmit()}>Complete Order</button>
+        </div>
+
+        <div>
+
         </div>
       </div>
     )
