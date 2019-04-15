@@ -57,7 +57,27 @@ const userSchema = new Schema({
   },
   billingzipcode: {
     type: String
-  }
+  },
+  orders: [
+    {
+      ordered: {
+        type: Date,
+        default: Date.now
+      },
+      company: {
+        type: String,
+        default: 'Amazon'
+      },
+      price: {
+        type: Number,
+        default: 0
+      }
+    }
+  ],
+  date: {
+    type: Date,
+    default: Date.now
+  },
 })
 
 const User = mongoose.model('user', userSchema)

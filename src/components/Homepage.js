@@ -28,8 +28,7 @@ class Homepage extends Component {
       cvv: '',
       billingzipcode: '',
       isHidden: true,
-      // firstTime: props.firstTime
-
+      message: ''
     }
     this.handleNext = this.handleNext.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -80,6 +79,9 @@ class Homepage extends Component {
       billingzipcode
     })
     .then(data => console.log('saved user: ', data))
+    .then(this.setState({
+      currentPage: 5
+    }))
     .catch(err => console.log('error: ', err))
   }
 
@@ -225,47 +227,67 @@ class Homepage extends Component {
             />
           </div>
 
-        <div>
-          {/* <button onClick={this.toggleSummary}>Toggle Summary</button>
-          {!this.state.isHidden && <Summary
-            name={name}
-            email={email}
-            password={password}
-            addresslineone={addresslineone}
-            addresslinetwo={addresslinetwo}
-            city={city}
-            state={state}
-            zip={zip}
-            phone={phone}
-            creditcard={creditcard}
-            expirationdate={expirationdate}
-            cvv={cvv}
-            billingzipcode={billingzipcode}
-          />} */}
-          <CheckInfo
-            currentPage={currentPage}
-            name={name}
-            email={email}
-            password={password}
-            addresslineone={addresslineone}
-            addresslinetwo={addresslinetwo}
-            city={city}
-            state={state}
-            zip={zip}
-            phone={phone}
-            creditcard={creditcard}
-            expirationdate={expirationdate}
-            cvv={cvv}
-            billingzipcode={billingzipcode}
-            goBack={this.goBack}
-            handleHomePage={this.handleHomePage}
-            handleSubmit={this.handleSubmit}
-            logout={this.logout}
-          />
+          <div>
+            <CheckInfo
+              currentPage={currentPage}
+              name={name}
+              email={email}
+              password={password}
+              addresslineone={addresslineone}
+              addresslinetwo={addresslinetwo}
+              city={city}
+              state={state}
+              zip={zip}
+              phone={phone}
+              creditcard={creditcard}
+              expirationdate={expirationdate}
+              cvv={cvv}
+              billingzipcode={billingzipcode}
+              goBack={this.goBack}
+              handleHomePage={this.handleHomePage}
+              handleSubmit={this.handleSubmit}
+              logout={this.logout}
+            />
+          </div>
         </div>
+      )
+    } else if( currentPage === 5) {
+      return(
+        <div>
+
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              logout={this.logout}
+            />
+          </div>
+
+          <div>
+            <div>
+              <h4>Congratulations! Order submitted.  Please return to the Home Page.</h4>
+            </div>
+          <Summary
+            name={name}
+            email={email}
+            password={password}
+            addresslineone={addresslineone}
+            addresslinetwo={addresslinetwo}
+            city={city}
+            state={state}
+            zip={zip}
+            phone={phone}
+            creditcard={creditcard}
+            expirationdate={expirationdate}
+            cvv={cvv}
+            billingzipcode={billingzipcode}
+          />
+          </div>
+
         </div>
       )
     }
+
   }
 }
 
