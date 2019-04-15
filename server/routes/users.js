@@ -7,6 +7,7 @@ const User = require('../models/User');
 // @route GET /allusers
 router.get('/allusers', (req, res, next) => {
   User.find()
+    .sort({ date: -1 })
     .then(users => res.json(users))
     .catch(err => console.log('error: ', err))
 })
