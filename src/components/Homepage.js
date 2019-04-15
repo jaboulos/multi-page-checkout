@@ -7,7 +7,8 @@ import Summary from './Summary';
 import NavBar from './NavBar';
 
 import axios from 'axios';
-import fire from '../firebaseConfig/Fire'
+import {base}from '../firebaseConfig/Fire'
+import {fire} from '../firebaseConfig/Fire';
 
 class Homepage extends Component {
   constructor(props) {
