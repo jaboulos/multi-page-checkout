@@ -4,7 +4,7 @@ const Summary = ({name, email, password, currentPage, addresslineone, addresslin
     return (
       <div>
         <div>
-          <h4>Checkout Summary</h4>
+          <h4>Checkout Information</h4>
           <p>Current Step: {currentPage}</p>
           <p>Name: {name}</p>
           <p>Email: {email}</p>
