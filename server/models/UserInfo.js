@@ -22,7 +22,7 @@ const userInfoSchema = new Schema({
   email: {
     type: String,
     lowercase: true,
-    unique: true,
+    // unique: true,
     required: true
   },
   orders: [
@@ -66,7 +66,11 @@ const userInfoSchema = new Schema({
   },
   billingzipcode: {
     type: String
-  }
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
 })
 
 const UserInfo = mongoose.model('userInfo', userInfoSchema)
