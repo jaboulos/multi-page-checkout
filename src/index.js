@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import App from './App';
 import Homepage from './components/Homepage';
+import About from './components/About';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -12,6 +13,7 @@ ReactDOM.render(
     <App>
       <Route exact path="/" component={Homepage}/>
       <Route exact path='/homepage' component={Homepage}/>
+      <Route exact path="/about" component={About}/>
     </App>
   </BrowserRouter>,
   document.getElementById('root'));
