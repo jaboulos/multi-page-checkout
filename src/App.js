@@ -11,7 +11,7 @@
 // export default App;
 
 import React, { Component } from 'react';
-import { base } from './firebaseConfig/Fire';
+// import { base } from './firebaseConfig/Fire';
 import { fire } from './firebaseConfig/Fire';
 
 import NavBar from './components/NavBar'
@@ -49,6 +49,7 @@ class App extends Component {
         <div className='container-fluid'>
           {/* { this.state.user ? this.props.children : <Login /> } */}
           { this.state.user ? (
+
             <Homepage
               email={this.state.user}
               // firstTime={this.state.firstTime}
