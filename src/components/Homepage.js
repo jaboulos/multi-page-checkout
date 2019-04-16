@@ -7,7 +7,7 @@ import Summary from './Summary';
 import NavBar from './NavBar';
 
 import axios from 'axios';
-import {base}from '../firebaseConfig/Fire'
+// import {base}from '../firebaseConfig/Fire'
 import {fire} from '../firebaseConfig/Fire';
 
 class Homepage extends Component {
@@ -15,19 +15,22 @@ class Homepage extends Component {
     super(props);
     this.state = {
       currentPage: 0,
-      name: '',
+      firstName: '',
+      lastName: '',
       email: props.email.email,
-      password: '',
+      company: '',
+      price: 0,
       addresslineone: '',
       addresslinetwo: '',
       city: '',
       state: '',
-      zip: '',
-      phone: '',
+      zip: 0,
+      phone: 0,
       creditcard: '',
-      expirationdate: '',
-      cvv: '',
-      billingzipcode: '',
+      creditcardnumber: 0,
+      expirationdate: 0,
+      cvv: 0,
+      billingzipcode: 0,
       isHidden: true,
       message: ''
     }
@@ -63,11 +66,13 @@ class Homepage extends Component {
   }
 
   handleSubmit(event) {
-    let { name, email, password, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode } = this.state;
+    let { firstName, lastName, email, company, price, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, creditcardnumber, expirationdate, cvv, billingzipcode } = this.state;
     axios.post('/saveinfo', {
-      name,
+      firstName,
+      lastName,
       email,
-      password,
+      company,
+      price,
       addresslineone,
       addresslinetwo,
       city,
@@ -75,6 +80,7 @@ class Homepage extends Component {
       zip,
       phone,
       creditcard,
+      creditcardnumber,
       expirationdate,
       cvv,
       billingzipcode
@@ -97,9 +103,9 @@ class Homepage extends Component {
   }
 
   render() {
-    console.log('HOMEPAGE EMAIL: ', this.state.email)
-    console.log('first timer? ', this.state.firstTime)
-    let { currentPage, name, email, password, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode, isEmptyState } = this.state;
+    // console.log('HOMEPAGE EMAIL: ', this.state.email)
+    // console.log('first timer? ', this.state.firstTime)
+    let { currentPage, firstName, lastName, email, company, price, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, creditcardnumber, expirationdate, cvv, billingzipcode, isEmptyState } = this.state;
 
     if( currentPage  === 0) {
       return (
@@ -129,9 +135,11 @@ class Homepage extends Component {
           <div>
             <StepOne
               currentPage={currentPage}
-              name={name}
+              firstName={firstName}
+              lastName={lastName}
               email={email}
-              password={password}
+              company={company}
+              price={price}
               handleHomePage={this.handleHomePage}
               handleChange={this.handleChange}
               handleNext={this.handleNext}
@@ -156,9 +164,11 @@ class Homepage extends Component {
         <div>
           <button onClick={this.toggleSummary}>Toggle Summary</button>
           {!this.state.isHidden && <Summary
-            name={name}
+            firstName={firstName}
+            lastName={lastName}
             email={email}
-            password={password}
+            company={company}
+            price={price}
           />}
           <StepTwo
             currentPage={currentPage}
@@ -191,9 +201,11 @@ class Homepage extends Component {
         <div>
           <button onClick={this.toggleSummary}>Toggle Summary</button>
           {!this.state.isHidden && <Summary
-            name={name}
+            firstName={firstName}
+            lastName={lastName}
             email={email}
-            password={password}
+            company={company}
+            price={price}
             addresslineone={addresslineone}
             addresslinetwo={addresslinetwo}
             city={city}
@@ -204,6 +216,7 @@ class Homepage extends Component {
         <StepThree
           currentPage={currentPage}
           creditcard={creditcard}
+          creditcardnumber={creditcardnumber}
           expirationdate={expirationdate}
           cvv={cvv}
           billingzipcode={billingzipcode}
@@ -231,9 +244,11 @@ class Homepage extends Component {
           <div>
             <CheckInfo
               currentPage={currentPage}
-              name={name}
+              firstName={firstName}
+              lastName={lastName}
               email={email}
-              password={password}
+              company={company}
+              price={price}
               addresslineone={addresslineone}
               addresslinetwo={addresslinetwo}
               city={city}
@@ -241,6 +256,7 @@ class Homepage extends Component {
               zip={zip}
               phone={phone}
               creditcard={creditcard}
+              creditcardnumber={creditcardnumber}
               expirationdate={expirationdate}
               cvv={cvv}
               billingzipcode={billingzipcode}
@@ -269,9 +285,11 @@ class Homepage extends Component {
               <h4>Congratulations! Order submitted.  Please return to the Home Page.</h4>
             </div>
           <Summary
-            name={name}
+            firstName={firstName}
+            lastName={lastName}
             email={email}
-            password={password}
+            company={company}
+            price={price}
             addresslineone={addresslineone}
             addresslinetwo={addresslinetwo}
             city={city}
@@ -279,6 +297,7 @@ class Homepage extends Component {
             zip={zip}
             phone={phone}
             creditcard={creditcard}
+            creditcardnumber={creditcardnumber}
             expirationdate={expirationdate}
             cvv={cvv}
             billingzipcode={billingzipcode}
