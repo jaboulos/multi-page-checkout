@@ -11,7 +11,8 @@
 // export default App;
 
 import React, { Component } from 'react';
-import fire from './firebaseConfig/Fire';
+import { base } from './firebaseConfig/Fire';
+import { fire } from './firebaseConfig/Fire';
 
 import NavBar from './components/NavBar'
 import Login from './components/Login';

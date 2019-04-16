@@ -16,7 +16,10 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  name: {
+  firstName: {
+    type: String
+  },
+  lastName: {
     type: String
   },
   email: {
@@ -25,8 +28,13 @@ const userSchema = new Schema({
     // unique: true,
     required: true
   },
-  password: {
-    type: String
+  company: {
+    type: String,
+    default: 'Amazon'
+  },
+  price: {
+    type: Number,
+    default: 0
   },
   addreslineone: {
     type: String
@@ -41,39 +49,26 @@ const userSchema = new Schema({
     type: String
   },
   zip: {
-    type: String
+    type: Number
   },
   phone: {
-    type: String
+    type: Number
   },
   creditcard: {
     type: String
   },
+  creditcardnumber: {
+    type: Number
+  },
   expirationdate: {
-    type: String
+    type: Number
   },
   cvv: {
-    type: String
+    type: Number
   },
   billingzipcode: {
-    type: String
+    type: Number
   },
-  orders: [
-    {
-      ordered: {
-        type: Date,
-        default: Date.now
-      },
-      company: {
-        type: String,
-        default: 'Amazon'
-      },
-      price: {
-        type: Number,
-        default: 0
-      }
-    }
-  ],
   date: {
     type: Date,
     default: Date.now

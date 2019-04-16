@@ -6,43 +6,43 @@ const StepTwo= ({handleChange, handleNext, handleHomePage, goBack, logout}) =>{
         {/* <form> */}
           <div>
             <label>
-              addresslineone:
-              <input onChange={handleChange('addresslineone')}></input>
+              address line 1:
+              <input placeholder='address line 1' onChange={handleChange('addresslineone')}></input>
             </label>
             </div>
 
             <div>
               <label>
-                addresslinetwo:
-                <input onChange={handleChange('addresslinetwo')}></input>
+                address line 2:
+                <input placeholder='address line 2' onChange={handleChange('addresslinetwo')}></input>
               </label>
             </div>
 
             <div>
               <label>
                 city:
-                <input onChange={handleChange('city')}></input>
+                <input placeholder='city' onChange={handleChange('city')}></input>
               </label>
             </div>
 
             <div>
               <label>
                 state:
-                <input onChange={handleChange('state')}></input>
+                <input placeholder='state' onChange={handleChange('state')}></input>
               </label>
             </div>
 
             <div>
               <label>
                 zip:
-                <input onChange={handleChange('zip')}></input>
+                <input placeholder='zip' onChange={handleChange('zip')}></input>
               </label>
             </div>
 
             <div>
               <label>
-                phone:
-                <input onChange={handleChange('phone')}></input>
+                phone #:
+                <input placeholder='phone #' onChange={handleChange('phone')}></input>
               </label>
             </div>
             <div>
