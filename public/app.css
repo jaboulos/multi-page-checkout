@@ -19,6 +19,10 @@ label, label.inline {
   width: 100px;
 }
 
+input:not(:focus) {
+  font-style:italic;
+  }
+
 /* buttons */
 button {
   margin-top: 5px;
