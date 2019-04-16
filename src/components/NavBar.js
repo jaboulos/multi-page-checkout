@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar =({handleHomePage, logout}) =>{
+const NavBar =({handleHomePage, handleOrdersPage, logout}) =>{
     return(
       <div className='navbar'>
         <nav className='navbar fixed-top navbar-expand-sm navbar-dark bg-dark'>
@@ -11,6 +11,9 @@ const NavBar =({handleHomePage, logout}) =>{
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link className="nav-link" onClick={()=>handleHomePage()}>Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" onClick={()=>handleOrdersPage()}>View Orders</Link>
               </li>
             </ul>
             <ul className="nav navbar-nav ml-auto">
