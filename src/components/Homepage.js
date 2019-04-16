@@ -5,6 +5,7 @@ import StepThree from './StepThree';
 import CheckInfo from './CheckInfo';
 import Summary from './Summary';
 import NavBar from './NavBar';
+import Orders from './Orders';
 
 import axios from 'axios';
 // import {base}from '../firebaseConfig/Fire'
@@ -38,6 +39,7 @@ class Homepage extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleHomePage = this.handleHomePage.bind(this)
+    this.handleOrdersPage = this.handleOrdersPage.bind(this)
     this.toggleSummary= this.toggleSummary.bind(this)
     this.goBack = this.goBack.bind(this)
     this.logout = this.logout.bind(this)
@@ -56,6 +58,12 @@ class Homepage extends Component {
   handleHomePage(event) {
     this.setState({
       currentPage: 0
+    })
+  }
+
+  handleOrdersPage(event) {
+    this.setState({
+      currentPage: 6
     })
   }
 
@@ -114,6 +122,7 @@ class Homepage extends Component {
             <NavBar
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
               logout={this.logout}
             />
           </div>
@@ -129,6 +138,7 @@ class Homepage extends Component {
             <NavBar
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
               logout={this.logout}
             />
           </div>
@@ -156,6 +166,7 @@ class Homepage extends Component {
             <NavBar
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
               logout={this.logout}
             />
           </div>
@@ -195,6 +206,7 @@ class Homepage extends Component {
             <NavBar
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
               logout={this.logout}
             />
           </div>
@@ -237,6 +249,7 @@ class Homepage extends Component {
             <NavBar
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
               logout={this.logout}
             />
           </div>
@@ -276,6 +289,7 @@ class Homepage extends Component {
             <NavBar
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
               logout={this.logout}
             />
           </div>
@@ -302,6 +316,27 @@ class Homepage extends Component {
             cvv={cvv}
             billingzipcode={billingzipcode}
           />
+          </div>
+
+        </div>
+      )
+    } else if( currentPage === 6) {
+      return (
+        <div>
+
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
+              logout={this.logout}
+            />
+          </div>
+            <Orders
+              email={email}
+            />
+          <div>
+
           </div>
 
         </div>
