@@ -1,14 +1,16 @@
 import React from 'react';
 
-const Summary = ({name, email, password, currentPage, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode }) =>{
+const Summary = ({firstName, lastName, email, company, price, currentPage, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, expirationdate, cvv, billingzipcode }) =>{
     return (
       <div>
         <div>
           <h4>Checkout Information</h4>
           <p>Current Step: {currentPage}</p>
-          <p>Name: {name}</p>
+          <p>First Name: {firstName}</p>
+          <p>Last Name: {lastName}</p>
           <p>Email: {email}</p>
-          <p>Password: {password}</p>
+          <p>Company: {company}</p>
+          <p>Cost: {price}</p>
           <p>Address Line 1: {addresslineone}</p>
           <p>Address Line 2: {addresslinetwo}</p>
           <p>City: {city}</p>
