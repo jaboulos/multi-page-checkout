@@ -4,7 +4,7 @@ const Summary = ({firstName, lastName, email, company, price, currentPage, addre
     return (
       <div>
         <div>
-          <h4>Checkout Information</h4>
+          <h4>Order Information</h4>
           <p>Current Step: {currentPage}</p>
           <p>First Name: {firstName}</p>
           <p>Last Name: {lastName}</p>
