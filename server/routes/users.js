@@ -5,7 +5,13 @@ const router = express.Router();
 const User = require('../models/User');
 
 // @route GET /allusers
-router.get('/allusers', (req, res, next) => {
+// router.get('/allusers', (req, res, next) => {
+//   User.find()
+//     .sort({ date: -1 })
+//     .then(users => res.json(users))
+//     .catch(err => console.log('error: ', err))
+// })
+router.get('/', (req, res, next) => {
   User.find()
     .sort({ date: -1 })
     .then(users => res.json(users))

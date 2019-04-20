@@ -35,7 +35,8 @@
     "server-dev": "nodemon server/app.js",
     "start-node": "node server/app.js",
     "client-dev": "npm start",
-    "start-dev": "concurrently \"npm run server-dev\" \"npm run client-dev\""
+    "start-dev": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
+    "start-dev-node": "concurrently \"npm run start-node\" \"npm run client-dev\""
   },
   "proxy": "http://localhost:4000/",
   "eslintConfig": {
