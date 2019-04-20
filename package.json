@@ -33,6 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server-dev": "nodemon server/app.js",
+    "start-node": "node server/app.js",
     "client-dev": "npm start",
     "start-dev": "concurrently \"npm run server-dev\" \"npm run client-dev\""
   },
