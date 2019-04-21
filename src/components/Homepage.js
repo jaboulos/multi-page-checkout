@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { fire } from '../firebaseConfig/Fire';
+
+import axios from 'axios';
+
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
@@ -6,10 +10,6 @@ import CheckInfo from './CheckInfo';
 import Summary from './Summary';
 import NavBar from './NavBar';
 import Orders from './Orders';
-
-import axios from 'axios';
-// import {base}from '../firebaseConfig/Fire'
-import {fire} from '../firebaseConfig/Fire';
 
 class Homepage extends Component {
   constructor(props) {
@@ -111,9 +111,7 @@ class Homepage extends Component {
   }
 
   render() {
-    // console.log('HOMEPAGE EMAIL: ', this.state.email)
-    // console.log('first timer? ', this.state.firstTime)
-    let { currentPage, firstName, lastName, email, company, price, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, creditcardnumber, expirationdate, cvv, billingzipcode, isEmptyState } = this.state;
+    let { currentPage, firstName, lastName, email, company, price, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, creditcardnumber, expirationdate, cvv, billingzipcode } = this.state;
 
     if( currentPage  === 0) {
       return (
@@ -170,36 +168,34 @@ class Homepage extends Component {
               logout={this.logout}
             />
           </div>
-
-
-        <div>
-          <button onClick={this.toggleSummary}>Toggle Summary</button>
-          {!this.state.isHidden && <Summary
-            firstName={firstName}
-            lastName={lastName}
-            email={email}
-            company={company}
-            price={price}
-          />}
-          <StepTwo
-            currentPage={currentPage}
-            addresslineone={addresslineone}
-            addresslinetwo={addresslinetwo}
-            city={city}
-            state={state}
-            zip={zip}
-            phone={phone}
-            handleHomePage={this.handleHomePage}
-            handleChange={this.handleChange}
-            handleNext={this.handleNext}
-            goBack={this.goBack}
-            toggleSummary={this.toggleSummary}
-            logout={this.logout}
-          />
-        </div>
+          <div>
+            <button onClick={this.toggleSummary}>Toggle Summary</button>
+            {!this.state.isHidden && <Summary
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+              company={company}
+              price={price}
+            />}
+            <StepTwo
+              currentPage={currentPage}
+              addresslineone={addresslineone}
+              addresslinetwo={addresslinetwo}
+              city={city}
+              state={state}
+              zip={zip}
+              phone={phone}
+              handleHomePage={this.handleHomePage}
+              handleChange={this.handleChange}
+              handleNext={this.handleNext}
+              goBack={this.goBack}
+              toggleSummary={this.toggleSummary}
+              logout={this.logout}
+            />
+          </div>
         </div>
       )
-    } else if( currentPage  === 3) {
+    } else if( currentPage  === 3 ) {
       return(
         <div>
           <div>
@@ -210,36 +206,36 @@ class Homepage extends Component {
               logout={this.logout}
             />
           </div>
-        <div>
-          <button onClick={this.toggleSummary}>Toggle Summary</button>
-          {!this.state.isHidden && <Summary
-            firstName={firstName}
-            lastName={lastName}
-            email={email}
-            company={company}
-            price={price}
-            addresslineone={addresslineone}
-            addresslinetwo={addresslinetwo}
-            city={city}
-            state={state}
-            zip={zip}
-            phone={phone}
-          />}
-        <StepThree
-          currentPage={currentPage}
-          creditcard={creditcard}
-          creditcardnumber={creditcardnumber}
-          expirationdate={expirationdate}
-          cvv={cvv}
-          billingzipcode={billingzipcode}
-          handleHomePage={this.handleHomePage}
-          handleChange={this.handleChange}
-          handleNext={this.handleNext}
-          goBack={this.goBack}
-          toggleSummary={this.toggleSummary}
-          logout={this.logout}
-        />
-      </div>
+          <div>
+            <button onClick={this.toggleSummary}>Toggle Summary</button>
+            {!this.state.isHidden && <Summary
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+              company={company}
+              price={price}
+              addresslineone={addresslineone}
+              addresslinetwo={addresslinetwo}
+              city={city}
+              state={state}
+              zip={zip}
+              phone={phone}
+            />}
+            <StepThree
+              currentPage={currentPage}
+              creditcard={creditcard}
+              creditcardnumber={creditcardnumber}
+              expirationdate={expirationdate}
+              cvv={cvv}
+              billingzipcode={billingzipcode}
+              handleHomePage={this.handleHomePage}
+              handleChange={this.handleChange}
+              handleNext={this.handleNext}
+              goBack={this.goBack}
+              toggleSummary={this.toggleSummary}
+              logout={this.logout}
+            />
+        </div>
       </div>
       )
     } else if( currentPage === 4) {
@@ -284,7 +280,6 @@ class Homepage extends Component {
     } else if( currentPage === 5) {
       return(
         <div>
-
           <div>
             <NavBar
               currentPage={currentPage}
@@ -293,7 +288,6 @@ class Homepage extends Component {
               logout={this.logout}
             />
           </div>
-
           <div>
             <div>
               <h4>Congratulations! Order submitted.  Please return to the Home Page.</h4>
@@ -317,13 +311,11 @@ class Homepage extends Component {
             billingzipcode={billingzipcode}
           />
           </div>
-
         </div>
       )
     } else if( currentPage === 6) {
       return (
         <div>
-
           <div>
             <NavBar
               currentPage={currentPage}
@@ -332,17 +324,14 @@ class Homepage extends Component {
               logout={this.logout}
             />
           </div>
+          <div>
             <Orders
               email={email}
             />
-          <div>
-
           </div>
-
         </div>
       )
     }
-
   }
 }
 
