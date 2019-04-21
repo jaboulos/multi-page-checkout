@@ -3,7 +3,7 @@ import React from 'react';
 const Orders = ({email}) =>{
     return (
       <div>
-        <p>Email: {email}</p>
+        <p>{email}, your orders include...</p>
       </div>
     )
 }
