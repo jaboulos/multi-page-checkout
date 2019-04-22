@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar =({handleHomePage, handleOrdersPage, logout}) =>{
+const NavBar =({handleHomePage, handleOrdersPage, about, logout}) =>{
     return(
       <div className='navbar'>
         <nav className='navbar fixed-top navbar-expand-sm navbar-dark bg-dark'>
@@ -22,7 +22,7 @@ const NavBar =({handleHomePage, handleOrdersPage, logout}) =>{
                 <Link className='nav-link' onClick={() => logout()}>Logout</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">About this app</Link>
+                <Link className="nav-link" onClick={() => about()}>About this app</Link>
               </li>
             </ul>
           </div>

@@ -10,6 +10,7 @@ import CheckInfo from './CheckInfo';
 import Summary from './Summary';
 import NavBar from './NavBar';
 import Orders from './Orders';
+import About from './About';
 
 class Homepage extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class Homepage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleHomePage = this.handleHomePage.bind(this)
     this.handleOrdersPage = this.handleOrdersPage.bind(this)
+    this.handleAbout = this.handleAbout.bind(this)
     this.toggleSummary= this.toggleSummary.bind(this)
     this.goBack = this.goBack.bind(this)
     this.logout = this.logout.bind(this)
@@ -64,6 +66,12 @@ class Homepage extends Component {
   handleOrdersPage(event) {
     this.setState({
       currentPage: 6
+    })
+  }
+
+  handleAbout(event) {
+    this.setState({
+      currentPage: 7
     })
   }
 
@@ -121,6 +129,7 @@ class Homepage extends Component {
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
               handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
               logout={this.logout}
             />
           </div>
@@ -137,6 +146,7 @@ class Homepage extends Component {
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
               handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
               logout={this.logout}
             />
           </div>
@@ -165,6 +175,7 @@ class Homepage extends Component {
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
               handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
               logout={this.logout}
             />
           </div>
@@ -203,6 +214,7 @@ class Homepage extends Component {
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
               handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
               logout={this.logout}
             />
           </div>
@@ -246,6 +258,7 @@ class Homepage extends Component {
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
               handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
               logout={this.logout}
             />
           </div>
@@ -285,6 +298,7 @@ class Homepage extends Component {
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
               handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
               logout={this.logout}
             />
           </div>
@@ -321,11 +335,31 @@ class Homepage extends Component {
               currentPage={currentPage}
               handleHomePage={this.handleHomePage}
               handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
               logout={this.logout}
             />
           </div>
           <div>
             <Orders
+              email={email}
+            />
+          </div>
+        </div>
+      )
+    } else if( currentPage === 7) {
+      return (
+        <div>
+          <div>
+            <NavBar
+              currentPage={currentPage}
+              handleHomePage={this.handleHomePage}
+              handleOrdersPage={this.handleOrdersPage}
+              about={this.handleAbout}
+              logout={this.logout}
+            />
+          </div>
+          <div>
+            <About
               email={email}
             />
           </div>
