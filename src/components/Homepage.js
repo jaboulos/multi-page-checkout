@@ -12,6 +12,13 @@ import NavBar from './NavBar';
 import Orders from './Orders';
 import About from './About';
 
+const divContainer = {
+  display: 'flex',
+  // flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
 class Homepage extends Component {
   constructor(props) {
     super(props);
@@ -133,9 +140,15 @@ class Homepage extends Component {
               logout={this.logout}
             />
           </div>
-          <h1>Begin Checkout</h1>
-          <button onClick={this.handleNext}>Begin Checkout</button>
-          <button onClick={this.logout}>Logout</button>
+          <div className='container-fluid'>
+            <div style={divContainer}>
+              <div>
+                <h1>Begin Checkout</h1>
+                <button onClick={this.handleNext}>Begin Checkout</button>
+                <button onClick={this.logout}>Logout</button>
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else if( currentPage  === 1) {
@@ -170,6 +183,7 @@ class Homepage extends Component {
     } else if( currentPage  === 2) {
       return(
         <div>
+
           <div>
             <NavBar
               currentPage={currentPage}
@@ -179,31 +193,35 @@ class Homepage extends Component {
               logout={this.logout}
             />
           </div>
+
           <div>
-            <button onClick={this.toggleSummary}>Toggle Summary</button>
-            {!this.state.isHidden && <Summary
-              firstName={firstName}
-              lastName={lastName}
-              email={email}
-              company={company}
-              price={price}
-            />}
-            <StepTwo
-              currentPage={currentPage}
-              addresslineone={addresslineone}
-              addresslinetwo={addresslinetwo}
-              city={city}
-              state={state}
-              zip={zip}
-              phone={phone}
-              handleHomePage={this.handleHomePage}
-              handleChange={this.handleChange}
-              handleNext={this.handleNext}
-              goBack={this.goBack}
-              toggleSummary={this.toggleSummary}
-              logout={this.logout}
-            />
+            <div>
+              <button onClick={this.toggleSummary}>Toggle Summary</button>
+              {!this.state.isHidden && <Summary
+                firstName={firstName}
+                lastName={lastName}
+                email={email}
+                company={company}
+                price={price}
+              />}
+              <StepTwo
+                currentPage={currentPage}
+                addresslineone={addresslineone}
+                addresslinetwo={addresslinetwo}
+                city={city}
+                state={state}
+                zip={zip}
+                phone={phone}
+                handleHomePage={this.handleHomePage}
+                handleChange={this.handleChange}
+                handleNext={this.handleNext}
+                goBack={this.goBack}
+                toggleSummary={this.toggleSummary}
+                logout={this.logout}
+              />
+            </div>
           </div>
+
         </div>
       )
     } else if( currentPage  === 3 ) {
