@@ -1,11 +1,14 @@
 import React from 'react';
 
+// const pStyle = {
+
+// }
+
 const CheckInfo = ({firstName, lastName, company, price, currentPage, addresslineone, addresslinetwo, city, state, zip, phone, creditcard, creditcardnumber, expirationdate, cvv, billingzipcode, handleHomePage, handleSubmit, goBack }) =>{
-  // console.log("check info: ", name, {email})
     return (
       <div>
         <div>
-          <h4>Verify The Following is correct</h4>
+          <h4>If the following is correct, complete your order.</h4>
           <p>Current Step: {currentPage}</p>
           <p>First Name: {firstName}</p>
           <p>Last Name: {lastName}</p>

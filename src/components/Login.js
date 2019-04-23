@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {base} from '../firebaseConfig/Fire';
 import {fire} from '../firebaseConfig/Fire';
 
 class Login extends Component {
@@ -12,6 +11,7 @@ class Login extends Component {
       email: '',
       password: '',
       // firstTime: false
+      errorMessage:'Please login or signup before navigating through this site.'
     }
   }
 
@@ -23,7 +23,10 @@ class Login extends Component {
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((u) =>{})
-      .catch(error => console.log('error: ', error))
+      //.catch(error => console.log('error: ', error))
+      .catch(error => this.setState({
+        errorMessage: "invalid email/password"
+      }))
   }
 
   signup(e) {
@@ -34,7 +37,10 @@ class Login extends Component {
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then((u) =>{})
       .then((u)=>{console.log(u)})
-      .catch(error => console.log('error: ', error))
+      // .catch(error => console.log('error: ', error))
+      .catch(error => this.setState({
+        errorMessage: "Invalid Email/PW or email is already in use."
+      }))
   }
 
   render() {
@@ -55,6 +61,9 @@ class Login extends Component {
             <button type='submit' onClick={this.login} className='btn btn-primary'>Login</button>
             <button onClick={this.signup} style={{marginLeft: '25px'}} className='btn btn-success'>Signup</button>
         </form>
+        <div>
+          {this.state.errorMessage}
+        </div>
       </div>
     )
   }
