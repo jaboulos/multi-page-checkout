@@ -1,8 +1,24 @@
 import React from 'react';
 
+// const divStyle {
+//   /* display: flex; */
+//   flex-wrap: wrap;
+//   justify-content: center;
+// }
+
+const divContainer = {
+  // display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
 const StepOne = ({handleChange, handleNext, handleHomePage, goBack, logout}) =>{
     return (
-      <div className='form-wrapper'>
+      // <div className='form-wrapper'>
+      <div className='container'>
+      <div style= {divContainer}>
+      <div className='col-md-6'>
           <div>
             <label>
               First Name:
@@ -45,7 +61,8 @@ const StepOne = ({handleChange, handleNext, handleHomePage, goBack, logout}) =>{
           <button onClick={() => handleHomePage()}>Start Over</button>
           <button onClick={() => logout()}>Logout</button>
         </div>
-
+        </div>
+        </div>
       </div>
     )
 }

@@ -1,5 +1,11 @@
 import React from 'react';
 
+const divContainer = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
 const StepTwo= ({handleChange, handleNext, handleHomePage, goBack, logout}) =>{
     return (
       <div className='form-wrapper'>
